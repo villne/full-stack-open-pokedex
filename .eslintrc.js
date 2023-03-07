@@ -9,6 +9,11 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
     ecmaVersion: 2018,
     sourceType: "module",
   },
