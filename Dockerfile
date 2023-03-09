@@ -1,6 +1,6 @@
 FROM debian:bullseye as builder
 
-ARG NODE_VERSION=18.14.2
+ARG NODE_VERSION=16.13.2
 
 RUN apt-get update; apt install -y curl python-is-python3 pkg-config build-essential
 RUN curl https://get.volta.sh | bash
@@ -21,7 +21,7 @@ ENV NODE_ENV production
 
 COPY . .
 
-RUN npm install && npm run build
+RUN npm install --production=false && npm run build
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"
