@@ -17,3 +17,4 @@ jobs:
             heroku_email: ville.niemenmaa@gmail.com
             healthcheck: https://pokedexqt-heroku-rest-api.herokuapp.com/health
             checkstring: ok
+            rollbackonhealthcheckfailed: true
