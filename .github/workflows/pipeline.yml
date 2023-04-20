@@ -33,7 +33,9 @@ jobs:
         wait-on: http://localhost:5000
 
   deploy:
-    name: Deploy app
+    if: ${{ github.event_name == 'push' }}
+    needs: [simple_deployment_pipeline]
+    name: Deploy app to fly
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -51,3 +53,4 @@ jobs:
       uses: anothrNick/github-tag-action@1.61.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEFAULT_BUMP: patch
